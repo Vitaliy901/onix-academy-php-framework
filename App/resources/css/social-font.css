@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'social-icons';
+  src:  url('../fonts/social-icons.eot?eu43vr');
+  src:  url('../fonts/social-icons.eot?eu43vr#iefix') format('embedded-opentype'),
+    url('../fonts/social-icons.ttf?eu43vr') format('truetype'),
+    url('../fonts/social-icons.woff?eu43vr') format('woff'),
+    url('../fonts/social-icons.svg?eu43vr#social-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"]::before, [class*=" icon-"]::before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'social-icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+  content: "\e900";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-youtube:before {
+  content: "\ea9d";
+}
+.icon-behance:before {
+  content: "\eaa9";
+}
+.icon-pinterest:before {
+  content: "\ead1";
+}

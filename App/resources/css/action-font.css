@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'article-icons';
+  src:  url('../fonts/article-icons.eot?5s1dca');
+  src:  url('../fonts/article-icons.eot?5s1dca#iefix') format('embedded-opentype'),
+    url('../fonts/article-icons.ttf?5s1dca') format('truetype'),
+    url('../fonts/article-icons.woff?5s1dca') format('woff'),
+    url('../fonts/article-icons.svg?5s1dca#article-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"]::before , [class*=" icon-"]::before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'article-icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pencil:before {
+  content: "\e900";
+}
+.icon-search-glass:before {
+  content: "\e901";
+}
+.icon-trash:before {
+  content: "\e902";
+}

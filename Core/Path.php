@@ -2,9 +2,9 @@
 	namespace Core;
 
 	class Path {
-		private string $controller;
-		private string $action;
-		private array $params;
+		private string $controller; // имя контроллера;
+		private string $action; // метод контролерра;
+		private array $params; // масив с параметрами роута.
 		
 		public function __construct(string $controller, string $action, array $params = [])
 		{
@@ -12,9 +12,9 @@
 			$this->action = $action;
 			$this->params = $params;
 		}
-		public function __get($name)
+		public function __get($property)
 		{
-			return $this->$name;
+			return $this->$property;
 		}
 	}
 ?>

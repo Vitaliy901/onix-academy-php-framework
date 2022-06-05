@@ -1,6 +1,6 @@
 <?php
 namespace Core;
-error_reporting(AI_ALL);
+error_reporting(E_ALL);
 ini_set('disply_errors', 'on');
 
 spl_autoload_register(function($class) {
@@ -12,21 +12,11 @@ spl_autoload_register(function($class) {
 		require_once($filename);
 	}
 });
-	
+
 	$routes = require_once $_SERVER['DOCUMENT_ROOT'] . '/App/Routes/Routes.php';
+
+	$path = (new Router)->compare($routes, $_SERVER['REQUEST_URI']);
+	$page = (new Operator)->getPage($path);
+	
+	echo (new View)->renderPage($page);
 ?>
-<pre>
-	<code>
-		<?php 
-		$a = '/test/1/2/';
-/* 		preg_match('#\{[^\s]+?\}#', $a, $matches); */
-		$stencil = '#^' . preg_replace('#\{([^\s]+?)\}#', '(?<$1>[^/]+)', $a) . '?$#';
-		preg_match($stencil, '/test/1/2/', $matches);
-/* 		$string;
-		foreach ($matches[0] as $param) {
-			$string .= trim($param, '{}') . '-';
-		} */
-		var_dump($matches);
-		?>
-	</code>
-</pre>
