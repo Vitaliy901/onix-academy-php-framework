@@ -8,11 +8,11 @@ namespace Core;
 */
 class View {
 
-	public function renderPage (Page $page) {
+	public function renderPage (Page $page): string {
 		return $this->renderLayout($page, $this->renderView($page));
 	}
 
-	private function renderLayout(Page $page, $viewContent) {
+	private function renderLayout(Page $page, $viewContent): string {
 		$layoutPath = $_SERVER['DOCUMENT_ROOT'] . '/App/resources/layouts/' . $page->layout . '.php';
 		
 		if (file_exists($layoutPath)) {
@@ -26,7 +26,7 @@ class View {
 		}
 	}
 
-	public function renderView(Page $page) {
+	public function renderView(Page $page): string {
 		$viewPath = $_SERVER['DOCUMENT_ROOT'] . '/App/resources/views/' . $page->view . '.php';
 	
 		if (file_exists($viewPath)) {

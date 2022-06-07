@@ -9,19 +9,19 @@ namespace Core;
 */
 class Operator {
 
-	public function getPage(Path $path): object|string {
+	public function getPage(Path $path): object {
 		$controller = new $path->controller;
 
 		if (method_exists($controller, $path->action)) {
 			$result = $controller->{$path->action}($path->params);
-			return $result;
+
 			if ($result) {
 				return $result;
 			} else {
 				return new Page('default');
 			}
 		} else {
-			echo 'Метод ' . $path->action . 'не существуєт в классе' . $controller;
+			echo 'Метод ' . $path->action . ' не существуєт в классе ' . $path->controller; die();
 		}
 	}
 }

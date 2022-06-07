@@ -27,10 +27,10 @@ class Router {
 		return new Path(ErrorController::class, 'notFound');
 	}
 
-	private function createStencil ($path) {
+	private function createStencil ($path): string{
 		return '#^' . preg_replace('#\{([^\s]+?)\}#', '(?<$1>[^/]+)', $path) . '$#';
 	}
-	private function toClean($params) {
+	private function toClean($params): array{
 		$result = [];
 		foreach ($params as $key => $value) {
 			if (!is_int($key)) {

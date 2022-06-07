@@ -6,7 +6,7 @@ class Page {
 	private string $title; // Тайтл страницы.
 	private string $root; // Корень ресурса.
 	private string $view; // Имя файла представления.
-	private array $data; // масив с параметрами роута.
+	private array $data; // Масив с параметрами роута.
 
 	public function __construct(string $layout, string $title = '', string $root = '', ?string $view = null, array $data = [])
 	{
