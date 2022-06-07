@@ -9,27 +9,23 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" as="style">
-		<link rel="preload" as="style" href="<?= $root ?>css/social-font.css">
-		<link rel="preload" as="style" href="<?= $root ?>css/reset.css">
 		<link rel="preload" as="style" href="<?= $root ?>css/style.css">
 		<link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="<?= $root ?>css/social-font.css">
-		<link rel="stylesheet" type="text/css" href="<?= $root ?>css/reset.css">
 		<link rel="stylesheet" type="text/css" href="<?= $root ?>css/style.css">
-		<title><?= $title ?></title>
+		<title>Home</title>
 		<link rel="shortcut icon" href="<?= $root ?>img/favicon/favicon.ico">
 	</head>
 	<body class="home">
 
 	<header class="home-header">
-		<div class="header header_home">
-			<div class="header__inner-wrapper header__inner-wrapper_padding">
-				<div class="logo logo_font logo_padding-top logo_line">
-					<a href="/">RUNO</a>
+		<div class="header-wrapper">
+			<div class="article-header__inner-wrapper inner-wrapper--padding">
+				<div class="logo-wrapper logo-wrapper--article">
+					<a class="home-logo" href="home">RUNO</a>
 				</div>
-				<div>
-					<a class="header-link header__header-link" href="/">Home</a>
-					<a class="header-link header__header-link" href="article-list.html">Articles</a>
+				<div class="header-links">
+					<a href="home">Home</a>
+					<a href="article-list.html">Articles</a>
 				</div>
 			</div>
 		</div>
@@ -49,15 +45,17 @@
 		</div>
 	</header>
 
-	<main class="home-main">
-		<div class="home-main__wrapper">
-			<div class="home-main-header">
+	<main>
+		<div class="hm-wrapper">
+			<div class="hm-wrapper__hm-header">
 				<h2>News</h2>
-				<a href="#">View All</a>
+				<a href="/news/all">View All</a>
 			</div>
+
 			<?= $viewContent?>
+
 		</div>
-		<div class="home-main-footer">
+		<div class="hm-wrapper__hm-footer">
 			<h2>Richird Norton photorealistic rendering as real photos</h2>
 			<p>
 				Progressively incentivize cooperative systems through 
@@ -95,14 +93,14 @@
 					</span>
 				</address>
 			</div>
-			<div class="home-footer-social">
+			<div>
 				<h3>Connections</h3>
-				<ul>
-					<li><a class="icon-facebook" href="https://www.facebook.com" title="facebook"></a></li>
-					<li><a class="icon-twitter" href="https://twitter.com" title="twitter"></a></li>
-					<li><a class="icon-youtube" href="https://www.youtube.com" title="youtube"></a></li>
-					<li><a class="icon-pinterest" href="https://www.pinterest.ru" title="pinteres"></a></li>
-					<li><a class="icon-behance" href="https://www.behance.net/" title="behance"></a></li>
+				<ul class="home-footer-social">
+					<li><a class="icon-facebook" href="https://www.facebook.com" title="facebook" target="blank"></a></li>
+					<li><a class="icon-twitter" href="https://twitter.com" title="twitter" target="blank"></a></li>
+					<li><a class="icon-youtube" href="https://www.youtube.com" title="youtube" target="blank"></a></li>
+					<li><a class="icon-pinterest" href="https://www.pinterest.ru" title="pinteres" target="blank"></a></li>
+					<li><a class="icon-behance" href="https://www.behance.net/" title="behance" target="blank"></a></li>
 				</ul>
 			</div>
 		</div>
@@ -111,6 +109,6 @@
 		</div>
 	</footer>
 
-	<script src="/App/resources/js/main.js"></script>
+	<script src="js/main.js"></script>
 	</body>
 </html>

@@ -7,7 +7,8 @@
 	<title><?= $title ?></title>
 </head>
 <body>
-	<h1>Article list</h1>
-	<p><?= $viewContent ?></p>
+
+	<?= $viewContent ?>
+	
 </body>
 </html>
