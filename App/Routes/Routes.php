@@ -10,7 +10,7 @@ use Core\Route;
 */
 	return [
 		new Route('/home', HomeController::class, 'home'),
-		new Route('/news/all', HomeController::class, 'allNews'),
+		new Route('/news', HomeController::class, 'allNews'),
 		new Route('/news/{id}', HomeController::class, 'singleNews'),
 	]
 ?>

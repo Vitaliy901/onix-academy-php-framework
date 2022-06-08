@@ -13,7 +13,7 @@ class Operator {
 		$controller = new $path->controller;
 
 		if (method_exists($controller, $path->action)) {
-			$result = $controller->{$path->action}($path->params);
+			$result = $controller->{$path->action}(...$path->params);
 
 			if ($result) {
 				return $result;

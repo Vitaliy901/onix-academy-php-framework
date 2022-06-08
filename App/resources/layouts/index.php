@@ -49,7 +49,7 @@
 		<div class="hm-wrapper">
 			<div class="hm-wrapper__hm-header">
 				<h2>News</h2>
-				<a href="/news/all">View All</a>
+				<a href="/news">View All</a>
 			</div>
 
 			<?= $viewContent?>
