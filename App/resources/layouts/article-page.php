@@ -12,68 +12,29 @@
 		<link rel="preload" as="style" href="<?= $root ?>css/style.css">
 		<link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?= $root ?>css/style.css">
-		<title><?= $title?></title>
+		<title><?= $title ?></title>
 		<link rel="shortcut icon" href="<?= $root ?>img/favicon/favicon.ico">
 	</head>
-	<body class="home">
+	<body>
 
-	<header class="home-header">
-		<div class="header-wrapper">
-			<div class="article-header__inner-wrapper inner-wrapper--padding">
-				<div class="logo-wrapper logo-wrapper--article">
-					<a class="home-logo" href="/">RUNO</a>
-				</div>
-				<nav class="header-links">
-					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/admin">Articles</a></li>
-					</ul>
-				</nav>
+	<header class="header-wrapper">
+		<div class="article-header__inner-wrapper inner-wrapper--padding">
+			<div class="logo-wrapper logo-wrapper--article">
+				<a class="home-logo" href="/">RUNO</a>
 			</div>
-		</div>
-		<div class="content-wr">
-			<div class="content-wr__container">
-				<h1>Richird Norton photorealistic rendering as real photos</h1>
-			</div>
-		</div>
-		<div class="slider fade">
-			<div>
-				<div class="image">
-						<div class="img one"></div>
-				</div>
-			</div>
-			<div>
-				<div class="image">
-					<div class="img two"></div>
-				</div>
-			</div>
-			<div>
-				<div class="image">
-						<div class="img three"></div>
-				</div>
-			</div>
+			<nav class="header-links">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/admin">Articles</a></li>
+				</ul>
+			</nav>
 		</div>
 	</header>
 
-	<main>
-		<div class="hm-wrapper">
-			<div class="hm-wrapper__hm-header">
-				<h2>News</h2>
-				<a href="/news">View All</a>
-			</div>
-			<div class="common-wrapper">
+	<main class="article-page-mn">
 
-			<?= $viewContent?>
-			
-			</div>
-		</div>
-		<div class="hm-wrapper__hm-footer">
-			<h2>Richird Norton photorealistic rendering as real photos</h2>
-			<p>
-				Progressively incentivize cooperative systems through 
-				technically sound functionalities. The credibly productivate seamless data.
-			</p>
-		</div>
+	<?= $viewContent ?>
+	
 	</main>
 
 	<footer class="home-footer">
@@ -116,13 +77,10 @@
 				</ul>
 			</div>
 		</div>
-		<div class="home-footer__cc-wrapper">
+		<div class="home-footer__cc-wrapper cc-wrapper--flex">
 			<span>&copy; 2021 | RUNO Publisher Studio</span>
+			<span><a href=""> Subscribe Now</a></span>
 		</div>
 	</footer>
-
-	<script src="<?= $root ?>js/jquery-3.6.0.min.js"></script>
-	<script src="<?= $root ?>js/slick.min.js"></script>
-	<script src="<?= $root ?>js/main.js"></script>
 	</body>
 </html>

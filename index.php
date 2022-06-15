@@ -13,10 +13,11 @@ spl_autoload_register(function($class) {
 	}
 });
 
-	$routes = require_once $_SERVER['DOCUMENT_ROOT'] . '/App/Routes/Routes.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/App/config/connection.php';
+$routes = require_once $_SERVER['DOCUMENT_ROOT'] . '/App/routes/routes.php';
 
-	$path = (new Router)->compare($routes, $_SERVER['REQUEST_URI']);
-	$page = (new Operator)->getPage($path);
-	
-	echo (new View)->renderPage($page);
+$path = (new Router)->compare($routes, $_SERVER['REQUEST_URI']);
+$page = (new Operator)->getPage($path);
+
+echo (new View)->renderPage($page);
 ?>

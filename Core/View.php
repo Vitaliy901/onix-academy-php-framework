@@ -14,7 +14,7 @@ class View {
 
 	private function renderLayout(Page $page, $viewContent): string {
 		$layoutPath = $_SERVER['DOCUMENT_ROOT'] . '/App/resources/layouts/' . $page->layout . '.php';
-		
+
 		if (file_exists($layoutPath)) {
 			ob_start();
 			$title = $page->title;
@@ -28,7 +28,7 @@ class View {
 
 	public function renderView(Page $page): string {
 		$viewPath = $_SERVER['DOCUMENT_ROOT'] . '/App/resources/views/' . $page->view . '.php';
-	
+
 		if (file_exists($viewPath)) {
 			ob_start();
 			extract($page->data);

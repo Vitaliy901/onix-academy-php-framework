@@ -1,24 +1,13 @@
-let one = document.querySelector('#one');
-let two = document.querySelector('#two');
-let three = document.querySelector('#three');
+$('.fade').slick({
+	dots: true,
+	infinite: true,
+	speed: 1700,
+	fade: true,
+	cssEase: 'linear',
+	autoplay: true,
+	autoplaySpeed: 6000,
+	arrows: false,
+	pauseOnHover: false,
+  });
 
-setTimeout(function () {
-	setInterval(function () {
-		if (one.checked) {
-			two.checked = true;
-			one.checked = false;
-			return;
-		} 
-		if (two.checked) {
-			three.checked = true;
-			two.checked = false;
-			return;
-		}
-		if (three.checked) {
-			one.checked = true;
-			three.checked = false;
-			return;
-		}
-	}, 7000);
-},1000);
 
