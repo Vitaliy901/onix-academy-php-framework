@@ -25,7 +25,7 @@
 			<nav class="header-links">
 				<ul>
 					<li><a href="/">Home</a></li>
-					<li><a href="/admin">Articles</a></li>
+					<li><a href="/login/result">Articles</a></li>
 				</ul>
 			</nav>
 		</div>

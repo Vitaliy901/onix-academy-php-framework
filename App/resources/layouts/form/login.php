@@ -1,3 +1,8 @@
+<?php 
+		if ($_SESSION['auth']) {
+			header('location: /admin');
+		}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>

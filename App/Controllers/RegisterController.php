@@ -38,6 +38,7 @@ class RegisterController extends Controller {
 			(new User('users'))->insert([
 				'email' => $request->input('email'),
 				'pass' => password_hash($request->input('password'), PASSWORD_DEFAULT),
+				'tokenRemember' => md5(uniqid(mt_rand(), true)),
 				'created_at' => date('d.m.Y H:i', time()),
 			]);
 			header('location: /admin');

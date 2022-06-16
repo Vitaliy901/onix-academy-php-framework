@@ -7,10 +7,11 @@ use App\Models\News;
 class HomeController extends Controller {
 
 	public function home (){
-
 		$news = (new News('articles'))->getAll();
-
 		$news = (new News('articles'))->latest($news);
+
+
+		setcookie('test', '', time() -1);
 
 		$this->layout = 'index';
 		$this->title = 'Home';
@@ -26,20 +27,6 @@ class HomeController extends Controller {
 
 		return $this->render('home/news-content', ['news' => $rows]);
 	}
-
-/* 	public function singleNews ($id){
-		$this->layout = 'single-news';
-		$this->title = 'News';
-		
-		return $this->render('home/single-nwes-content', ['id' => $id]);
-	}
-
-	public function allNews (){
-		$this->layout = 'news-all';
-		$this->title = 'All News';
-		
-		return $this->render('home/news-list-content');
-	} */
 }
 
 ?>
