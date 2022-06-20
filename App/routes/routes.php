@@ -1,10 +1,10 @@
 <?php
-use Core\Route;
+use Core\Routing\Route;
 use App\Controllers\HomeController;
 use App\Controllers\ArticleController;
 use App\Controllers\NewsController;
-use App\Controllers\LoginController;
-use App\Controllers\RegisterController;
+use App\Controllers\UserController;
+/* use App\Controllers\RegisterController; */
 /*
 	Routing...
 	{dynamic parameter};
@@ -20,10 +20,11 @@ return [
 	new Route('/add', ArticleController::class, 'put'),
 	new Route('/del/{id}', ArticleController::class, 'del'),
 
-	new Route('/login', LoginController::class, 'show'),
-	new Route('/login/result', LoginController::class, 'result'),
-	new Route('/logout', LoginController::class, 'out'),
-	new Route('/register', RegisterController::class, 'show'),
-	new Route('/register/result', RegisterController::class, 'result'),
+	new Route('/login', UserController::class, 'login'),
+	new Route('/login/result', UserController::class, 'loginResult'),
+	new Route('/register', UserController::class, 'register'),
+	new Route('/register/result', UserController::class, 'registerResult'),
+	new Route('/logout', UserController::class, 'out'),
+
 	]
 ?>

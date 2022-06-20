@@ -5,7 +5,7 @@
 					Progressively incentivize cooperative systems through technically 
 					sound functionalities. The credibly productivate seamless data.
 				</p>
-				<img src="<?= $root ?>img/article-page-hd.jpg" srcset="<?= $root ?>img/article-page-hd2x.jpg 2x" alt="#">
+				<img src="/img/article-page-hd.jpg" srcset="/img/article-page-hd2x.jpg 2x" alt="#">
 			</header>
 			<p>
 				Seamlessly syndicate cutting-edge architectures rather than collaborative collaboration and idea-sharing. 
@@ -33,10 +33,10 @@
 				Intrinsicly iterate extensible metrics for prospective opportunities. 
 				Continually develop leading-edge experiences through quality e-services.
 			</p>
-			<time datetime="2021-08-08">Created 08.08.2021</time>
+			<time datetime="<?= str_replace('.','-',$id)?>">Created <?= $id ?></time>
 			<hr>
 			<footer class="author-ft">
-				<img src="<?= $root ?>img/author.jpg" srcset="<?= $root ?>img/author2x.jpg 2x" alt="author">
+				<img src="/img/author.jpg" srcset="/img/author2x.jpg 2x" alt="author">
 				<address>
 					<div class="author-name">
 						<span>By Jennifer Lawrence</span>
@@ -57,7 +57,7 @@
 				<h2>Related Posts</h2>
 				<div class="related-wr">
 					<article>
-						<img src="<?= $root ?>img/mountains.jpg" srcset="<?= $root ?>img/mountains2x.jpg 2x" alt="mountains">
+						<img src="/img/mountains.jpg" srcset="/img/mountains2x.jpg 2x" alt="mountains">
 						<time>27.09.2021</time>
 						<h3>
 							<a href="#">
@@ -71,7 +71,7 @@
 						</p>
 					</article>
 					<article>
-						<img src="<?= $root ?>img/stopsignal.jpg" srcset="<?= $root ?>img/stopsignal2x.jpg 2x" alt="stopsignal">
+						<img src="/img/stopsignal.jpg" srcset="/img/stopsignal2x.jpg 2x" alt="stopsignal">
 						<time>27.09.2021</time>
 						<h3>
 							<a href="#">
@@ -85,7 +85,7 @@
 						</p>
 					</article>
 					<article>
-						<img src="<?= $root ?>img/girlred.jpg" srcset="<?= $root ?>img/girlred2x.jpg 2x" alt="girlred">
+						<img src="/img/girlred.jpg" srcset="/img/girlred2x.jpg 2x" alt="girlred">
 						<time>27.09.2021</time>
 						<h3>
 							<a href="#">

@@ -1,6 +1,3 @@
-<?php 
-	session_start();
-?>
 <?php if ($_SESSION['auth']): ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,11 +10,11 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" as="style">
-		<link rel="preload" as="style" href="<?= $root ?>css/style.css">
+		<link rel="preload" as="style" href="/css/style.css">
 		<link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="<?= $root ?>css/style.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<title><?= $title ?></title>
-		<link rel="shortcut icon" href="<?= $root ?>img/favicon/favicon.ico">
+		<link rel="shortcut icon" href="/img/favicon/favicon.ico">
 	</head>
 	<body>
 
@@ -88,14 +85,14 @@
 						</thead>
 						<tbody>
 
-							<?= $viewContent ?>
+							<?= $content ?>
 							
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</main>
-		<script src="<?= $root ?>js/article-list.js"></script>
+		<script src="/js/article-list.js"></script>
 	</body>
 </html>
 <?php else: ?>

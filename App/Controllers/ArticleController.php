@@ -2,32 +2,35 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use Core\Request;
+use Core\Session\Request;
+use Core\View\Html;
 use App\Models\Article;
 
 class ArticleController extends Controller {
 
-	public function show () {
+	public function show (): Html {
 		$articles = (new Article('articles'))->getAll();
 		$articles = (new Article('articles'))->latest($articles);
-		$this->layout = 'article-list';
-		$this->title = 'Article list';
 
-		session_start();
 		if (!$_SESSION['auth']) {
 			header('location: /login');
 		}
-		return $this->render('article/article-list-content', ['articles' => $articles]);
+
+		return new Html('article-list','article/article-list-content', 
+		[
+			'title' => 'Article list',
+			'articles' => $articles,
+		]);
 	}
 
 	public function put () {
-		$article = new Article('articles');
 		$request = new Request;
-		$request->moveFile($this->root . 'img');
+		$article = new Article('articles');
+		$request->moveFile('img');
 
 		$article->insert([
 			'author' => $request->input('author'),
-			'img' => $request->input('file'),
+			'img' => $request->input('fileName'),
 			'header' => $request->input('header'),
 			'content' =>$request->input('content'),
 			'created_at' => date('d.m.Y', time()),
@@ -39,8 +42,7 @@ class ArticleController extends Controller {
 	}
 
 	public function del ($id) {
-		$articles = new Article('articles');
-		$articles->delete($id);
+		(new Article('articles'))->delete($id);
 
 		header('location: /admin');
 	}

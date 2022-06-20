@@ -1,8 +1,8 @@
 <?php 
 namespace App\Models;
 
-use Core\Model;
-use Core\Traits\Sort;
+use Core\Model\Model;
+use Core\Model\Traits\Sort;
 
 class News extends Model {
 	use Sort;

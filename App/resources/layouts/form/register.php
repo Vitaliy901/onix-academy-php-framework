@@ -9,19 +9,19 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" as="style">
-		<link rel="preload" as="style" href="<?= $root ?>css/style.css">
+		<link rel="preload" as="style" hrefs="/css/style.css">
 		<link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="<?= $root ?>css/style.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<title><?= $title?></title>
-		<link rel="shortcut icon" href="<?= $root ?>img/favicon/favicon.ico">
+		<link rel="shortcut icon" href="/img/favicon/favicon.ico">
 	</head>
 	<body>
 
 		<div class="register">
 			<div class="register__left">
 				<a class="onix-logo" href="https://onix.kr.ua/"></a>
-				<img src="<?= $root ?>img/form_runo_img.jpg"
-					srcset="<?= $root ?>img/form_runo_img2x.jpg 2x" 
+				<img src="/img/form_runo_img.jpg"
+					srcset="/img/form_runo_img2x.jpg 2x" 
 					alt="Runo img">
 			</div>
 			<div class="register__right">
@@ -30,7 +30,7 @@
 						<a href="/">RUNO</a>
 					</div>
 
-					<?= $viewContent ?>
+					<?= $content ?>
 
 				</div>
 			</div>

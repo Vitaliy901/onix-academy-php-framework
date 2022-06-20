@@ -1,0 +1,16 @@
+{
+    "name": "vitaliy/onix-academy-php-framework",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/",
+			"App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vitaliy901",
+            "email": "allanamos90@gmail.com"
+        }
+    ],
+    "require": {}
+}

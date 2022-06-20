@@ -9,11 +9,11 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" as="style">
-		<link rel="preload" as="style" href="<?= $root ?>css/style.css">
+		<link rel="preload" as="style" href="css/style.css">
 		<link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="<?= $root ?>css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<title><?= $title?></title>
-		<link rel="shortcut icon" href="<?= $root ?>img/favicon/favicon.ico">
+		<link rel="shortcut icon" href="img/favicon/favicon.ico">
 	</head>
 	<body class="home">
 
@@ -26,7 +26,7 @@
 				<nav class="header-links">
 					<ul>
 						<li><a href="/">Home</a></li>
-						<li><a href="/login/result">Articles</a></li>
+						<li><a href="/login">Articles</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -63,7 +63,7 @@
 			</div>
 			<div class="common-wrapper">
 
-			<?= $viewContent?>
+			<?= $content?>
 			
 			</div>
 		</div>
@@ -121,8 +121,8 @@
 		</div>
 	</footer>
 
-	<script src="<?= $root ?>js/jquery-3.6.0.min.js"></script>
-	<script src="<?= $root ?>js/slick.min.js"></script>
-	<script src="<?= $root ?>js/main.js"></script>
+	<script src="/js/jquery-3.6.0.min.js"></script>
+	<script src="/js/slick.min.js"></script>
+	<script src="/js/main.js"></script>
 	</body>
 </html>

@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
+use Core\View\Html;
 use App\Models\News;
 
 class NewsController extends Controller {
@@ -9,20 +10,24 @@ class NewsController extends Controller {
 	public function all () {
 		$news = (new News('articles'))->getAll();
 		$news = (new News('articles'))->latest($news);
-		$this->layout = 'all-news';
-		$this->title = 'All News';
 
-		return $this->render('home/news-content', ['news' => $news]);
+		return new Html('all-news','home/news-content', 
+		[
+			'title' => 'All News',
+			'news' => $news
+		]);
 	}
 
-	public function one ($id) {
+	public function one (int $id) {
 		$row = (new News('articles'))->getById($id);
-		$this->layout = 'article-page';
-		$this->title = 'Article page';
 
-		return $this->render('home/article-page-content', [
-			'id' => $row->created_at,
-		]);
+		if (is_object($row)) {
+			return new Html('article-page','home/article-page-content',
+			[
+				'title' => 'Article page',
+				'id' => $row->created_at,
+			]);
+		}
 	}
 }
 
