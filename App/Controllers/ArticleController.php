@@ -1,18 +1,17 @@
 <?php 
 namespace App\Controllers;
 
-use Core\Controller;
-use Core\Session\Request;
+use Core\Sessions\Request;
 use Core\View\Html;
 use App\Models\Article;
 
-class ArticleController extends Controller {
+class ArticleController {
 
 	public function show (): Html {
 		$articles = (new Article('articles'))->getAll();
 		$articles = (new Article('articles'))->latest($articles);
 
-		if (!$_SESSION['auth']) {
+		if (empty($_SESSION['auth'])) {
 			header('location: /login');
 		}
 
@@ -39,12 +38,14 @@ class ArticleController extends Controller {
 		]);
 
 		header('location: /admin');
+		die();
 	}
 
 	public function del ($id) {
 		(new Article('articles'))->delete($id);
 
 		header('location: /admin');
+		die();
 	}
 }
 

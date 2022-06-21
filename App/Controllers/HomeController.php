@@ -1,11 +1,11 @@
 <?php 
 namespace App\Controllers;
 
-use Core\Controller;
+
 use App\Models\News;
 use Core\View\Html;
 
-class HomeController extends Controller {
+class HomeController {
 
 	public function home (): Html {
 		$news = (new News('articles'))->getAll();

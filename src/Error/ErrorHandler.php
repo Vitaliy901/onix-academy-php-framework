@@ -26,8 +26,8 @@ class ErrorHandler {
 
 		return true;
 	}
-	protected function displayError (string $errno,string $errstr,string $errfile,int $errline, $response = 404) {
-		error_log(date('Y.m.d H:i:s', time()) . "\nMessage: $errstr\nFile: $errfile\nLine: $errline\n==========\n", 3, DEBUG_FILE);
+	protected function displayError (string $errno,string $errstr,string $errfile,int $errline, $response = 500) {
+		error_log(date('Y.m.d H:i:s', time()) . "\nType: $errno\nMessage: $errstr\nFile: $errfile\nLine: $errline\n==========\n", 3, DEBUG_FILE);
 		http_response_code($response);
 		if (DEBUG) {
 			echo (new Html('errors/dev','errors/dev-cont', 

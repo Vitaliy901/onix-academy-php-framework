@@ -55,49 +55,61 @@
 		<div class="article-page-mn__footer">
 			<div class="footer__wr">
 				<h2>Related Posts</h2>
-				<div class="related-wr">
-					<article>
-						<img src="/img/mountains.jpg" srcset="/img/mountains2x.jpg 2x" alt="mountains">
-						<time>27.09.2021</time>
+				<div class="slider single-item related-wr">
+					<div>
 						<h3>
-							<a href="#">
-								Richird Norton photorealistic rendering as real photos
-							</a>
+							<article>
+								<img src="/img/mountains.jpg" srcset="/img/mountains2x.jpg 2x" alt="mountains">
+								<time>27.09.2021</time>
+								<h3>
+									<a href="#">
+										Richird Norton photorealistic rendering as real photos
+									</a>
+								</h3>
+								<p>
+									Progressively incentivize cooperative systems through 
+									technically sound functionalities. 
+									The credibly productivate seamless data.
+								</p>
+							</article>
 						</h3>
-						<p>
-							Progressively incentivize cooperative systems through 
-							technically sound functionalities. 
-							The credibly productivate seamless data.
-						</p>
-					</article>
-					<article>
-						<img src="/img/stopsignal.jpg" srcset="/img/stopsignal2x.jpg 2x" alt="stopsignal">
-						<time>27.09.2021</time>
+					</div>
+					<div>
 						<h3>
-							<a href="#">
-								Richird Norton photorealistic rendering as real photos
-							</a>
+							<article>
+								<img src="/img/stopsignal.jpg" srcset="/img/stopsignal2x.jpg 2x" alt="stopsignal">
+								<time>27.09.2021</time>
+								<h3>
+									<a href="#">
+										Richird Norton photorealistic rendering as real photos
+									</a>
+								</h3>
+								<p>
+									Progressively incentivize cooperative systems through 
+									technically sound functionalities. 
+									The credibly productivate seamless data.
+								</p>
+							</article>
 						</h3>
-						<p>
-							Progressively incentivize cooperative systems through 
-							technically sound functionalities. 
-							The credibly productivate seamless data.
-						</p>
-					</article>
-					<article>
-						<img src="/img/girlred.jpg" srcset="/img/girlred2x.jpg 2x" alt="girlred">
-						<time>27.09.2021</time>
+					</div>
+					<div>
 						<h3>
-							<a href="#">
-								Richird Norton photorealistic rendering as real photos
-							</a>
+							<article>
+								<img src="/img/girlred.jpg" srcset="/img/girlred2x.jpg 2x" alt="girlred">
+								<time>27.09.2021</time>
+								<h3>
+									<a href="#">
+										Richird Norton photorealistic rendering as real photos
+									</a>
+								</h3>
+								<p>
+									Progressively incentivize cooperative systems through 
+									technically sound functionalities. 
+									The credibly productivate seamless data.
+								</p>
+							</article>
 						</h3>
-						<p>
-							Progressively incentivize cooperative systems through 
-							technically sound functionalities. 
-							The credibly productivate seamless data.
-						</p>
-					</article>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -12,7 +12,7 @@ class Data {
 		}
 
 		self::autoIncrement($row);
-		$encoded = self::encode(self::$decoded);
+		$encoded = self::encode();
 		file_put_contents($path, $encoded);
 	}
 
@@ -28,11 +28,11 @@ class Data {
 			}
 		}
 
-		$encoded = self::encode(self::$decoded);
+		$encoded = self::encode();
 		file_put_contents($path, $encoded);
 	}
 	
-	public static function get (string $path, ?string $id = null): array|object {
+	public static function get (string $path, ?string $id = null): array | object {
 		if (empty($id)) {
 			return self::all($path);
 		}
@@ -51,11 +51,18 @@ class Data {
 
 	public static function delete (string $path, $id) {
 		$json = file_get_contents($path);
+
 		self::$decoded = self::decode($json);
+
 		foreach (self::$decoded as $index => $row) {
+
 			if ($row->id == $id) {
+
+				if (!empty($row->img)) {
+					unlink(SERVER_ROOT . $row->img);
+				}
+
 				unset(self::$decoded[$index]);
-				unlink(SERVER_ROOT . $row->img);
 				$encoded = self::encode(self::$decoded);
 				file_put_contents($path, $encoded);
 				break;
@@ -64,11 +71,12 @@ class Data {
 	}
 
 	private static function decode (string $table): array {
-			return json_decode($table);
+		return json_decode($table);
 	}
 
-	private static function encode(array $data): string {
-		return json_encode($data);
+	private static function encode(): string {
+		ksort(self::$decoded);
+		return json_encode(self::$decoded);
 	}
 
 	private static function autoIncrement (array $row): void {
@@ -84,7 +92,9 @@ class Data {
 
 	private static function all (string $path): array {
 		$json = file_get_contents($path);
+
 		if (!empty($json)){
+
 			return self::decode($json);
 		}
 		return [];

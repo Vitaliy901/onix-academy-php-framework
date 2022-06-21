@@ -1,12 +1,11 @@
 <?php 
 namespace App\Controllers;
 
-use Core\Controller;
 use Core\Sessions\Request;
 use Core\View\Html;
 use App\Models\User;
 
-class UserController extends Controller {
+class UserController {
 
 	public function login (): Html {
 		$request = new Request;
@@ -18,6 +17,7 @@ class UserController extends Controller {
 					$_SESSION['auth'] = $row->id;
 
 					header('location: /admin');
+					die();
 				}
 			}
 		}
@@ -50,12 +50,13 @@ class UserController extends Controller {
 			password_verify($request->input('password'), $row->pass ) &&
 			$_SESSION['csrf'] == $request->input('token'))
 			{
-				$_SESSION['auth'] = $row->id;
+				$_SESSION['auth'] = true;
 
 				if ($request->input('remember') == 'on') {
 					setcookie('runo_user', $row->tokenRemember, strtotime('+1 year'), DS, '', false, 'httponly');
 				}
 				header('location: /admin');
+				die();
 			}
 		}
 		return new Html('form/login','form/login-content',
@@ -95,6 +96,7 @@ class UserController extends Controller {
 
 			$_SESSION['auth'] = true;
 			header('location: /admin');
+			die();
 		}
 		return new Html('form/register','form/register-content',
 		[
@@ -122,6 +124,7 @@ class UserController extends Controller {
 			setcookie('runo_user', '', time() - 1);
 		}
 		header('location: /login');
+		die();
 	}
 }
 ?>

@@ -1,13 +1,12 @@
 <?php 
 namespace App\Controllers;
 
-use Core\Controller;
 use Core\View\Html;
 use App\Models\News;
 
-class NewsController extends Controller {
+class NewsController {
 
-	public function all () {
+	public function all (): Html {
 		$news = (new News('articles'))->getAll();
 		$news = (new News('articles'))->latest($news);
 
@@ -18,7 +17,7 @@ class NewsController extends Controller {
 		]);
 	}
 
-	public function one (int $id) {
+	public function one (int $id): Html {
 		$row = (new News('articles'))->getById($id);
 
 		if (is_object($row)) {

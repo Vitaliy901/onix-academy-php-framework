@@ -17,70 +17,73 @@
 	</head>
 	<body>
 
-	<header class="header-wrapper">
-		<div class="article-header__inner-wrapper inner-wrapper--padding">
-			<div class="logo-wrapper logo-wrapper--article">
-				<a class="home-logo" href="/">RUNO</a>
+		<header class="header-wrapper">
+			<div class="article-header__inner-wrapper inner-wrapper--padding">
+				<div class="logo-wrapper logo-wrapper--article">
+					<a class="home-logo" href="/">RUNO</a>
+				</div>
+				<nav class="header-links">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/login">Articles</a></li>
+					</ul>
+				</nav>
 			</div>
-			<nav class="header-links">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/login">Articles</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+		</header>
 
-	<main class="article-page-mn">
+		<main class="article-page-mn">
 
-	<?= $content ?>
-	
-	</main>
+		<?= $content ?>
+		
+		</main>
 
-	<footer class="home-footer">
-		<div class="home-footer__wrapper">
-			<div>
-				<h3>Contact the Publisher</h3>
-				<address>
-					<a href="#">mike@runo.com</a>
-					<p>+944 450 904 505</p>
-				</address>
+		<footer class="home-footer">
+			<div class="home-footer__wrapper">
+				<div>
+					<h3>Contact the Publisher</h3>
+					<address>
+						<a href="#">mike@runo.com</a>
+						<p>+944 450 904 505</p>
+					</address>
+				</div>
+				<div>
+					<h3>Explorate</h3>
+					<ul>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Partners</a></li>
+						<li><a href="#">Job Opportunities</a></li>
+						<li><a href="#">Advertise</a></li>
+						<li><a href="#">Membership</a></li>
+					</ul>
+				</div>
+				<div class="headquarter">
+					<h3>Headquarter</h3>
+					<address>
+						<span> 
+							191 Middleville Road,
+							NY 1001, Sydney
+							Australia
+						</span>
+					</address>
+				</div>
+				<div>
+					<h3>Connections</h3>
+					<ul class="home-footer-social">
+						<li><a class="icon-facebook" href="https://www.facebook.com" title="facebook" target="blank"></a></li>
+						<li><a class="icon-twitter" href="https://twitter.com" title="twitter" target="blank"></a></li>
+						<li><a class="icon-youtube" href="https://www.youtube.com" title="youtube" target="blank"></a></li>
+						<li><a class="icon-pinterest" href="https://www.pinterest.ru" title="pinteres" target="blank"></a></li>
+						<li><a class="icon-behance" href="https://www.behance.net/" title="behance" target="blank"></a></li>
+					</ul>
+				</div>
 			</div>
-			<div>
-				<h3>Explorate</h3>
-				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Partners</a></li>
-					<li><a href="#">Job Opportunities</a></li>
-					<li><a href="#">Advertise</a></li>
-					<li><a href="#">Membership</a></li>
-				</ul>
+			<div class="home-footer__cc-wrapper cc-wrapper--flex">
+				<span>&copy; 2021 | RUNO Publisher Studio</span>
+				<span><a href="#">Subscribe Now</a></span>
 			</div>
-			<div class="headquarter">
-				<h3>Headquarter</h3>
-				<address>
-					<span> 
-						191 Middleville Road,
-						NY 1001, Sydney
-						Australia
-					</span>
-				</address>
-			</div>
-			<div>
-				<h3>Connections</h3>
-				<ul class="home-footer-social">
-					<li><a class="icon-facebook" href="https://www.facebook.com" title="facebook" target="blank"></a></li>
-					<li><a class="icon-twitter" href="https://twitter.com" title="twitter" target="blank"></a></li>
-					<li><a class="icon-youtube" href="https://www.youtube.com" title="youtube" target="blank"></a></li>
-					<li><a class="icon-pinterest" href="https://www.pinterest.ru" title="pinteres" target="blank"></a></li>
-					<li><a class="icon-behance" href="https://www.behance.net/" title="behance" target="blank"></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="home-footer__cc-wrapper cc-wrapper--flex">
-			<span>&copy; 2021 | RUNO Publisher Studio</span>
-			<span><a href="#">Subscribe Now</a></span>
-		</div>
-	</footer>
+		</footer>
+		<script src="/js/jquery-3.6.0.min.js"></script>
+		<script src="/js/slick.min.js"></script>
+		<script src="/js/aricle-page.js"></script>
 	</body>
 </html>

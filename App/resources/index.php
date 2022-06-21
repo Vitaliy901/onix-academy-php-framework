@@ -6,8 +6,8 @@ use Core\Operator;
 use Core\Sessions\Session;
 
 require_once '../config/constants.php';
-require_once '../../vendor/autoload.php';
-$routes = require_once '../routes/routes.php';
+require_once ROOT . DS . 'vendor/autoload.php';
+$routes = require_once ROOT_APP . DS . 'routes/routes.php';
 
 new ErrorHandler;
 Session::start(SESSNAME);

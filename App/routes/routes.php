@@ -4,7 +4,6 @@ use App\Controllers\HomeController;
 use App\Controllers\ArticleController;
 use App\Controllers\NewsController;
 use App\Controllers\UserController;
-/* use App\Controllers\RegisterController; */
 /*
 	Routing...
 	{dynamic parameter};
@@ -24,7 +23,6 @@ return [
 	new Route('/login/result', UserController::class, 'loginResult'),
 	new Route('/register', UserController::class, 'register'),
 	new Route('/register/result', UserController::class, 'registerResult'),
-	new Route('/logout', UserController::class, 'out'),
-
+	new Route('/logout', UserController::class, 'out')
 	]
 ?>
