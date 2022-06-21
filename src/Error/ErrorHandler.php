@@ -27,8 +27,8 @@ class ErrorHandler {
 		return true;
 	}
 	protected function displayError (string $errno,string $errstr,string $errfile,int $errline, $response = 500) {
-		error_log(date('Y.m.d H:i:s', time()) . "\nType: $errno\nMessage: $errstr\nFile: $errfile\nLine: $errline\n==========\n", 3, DEBUG_FILE);
 		http_response_code($response);
+		error_log(date('Y.m.d H:i:s', time()) . "\nType: $errno\nMessage: $errstr\nFile: $errfile\nLine: $errline\n==========\n", 3, DEBUG_FILE);
 		if (DEBUG) {
 			echo (new Html('errors/dev','errors/dev-cont', 
 			[
@@ -39,7 +39,7 @@ class ErrorHandler {
 				'errline' => $errline
 			]))->render();
 		} else {
-			echo (new Html('errors/' . $response, 'errors/' . $response . '-cont', ['title' => 'Error',]))->render();
+			echo (new Html('errors/404', 'errors/404-cont', ['title' => 'Error',]))->render();
 		}
 		die();
 	}
@@ -56,6 +56,7 @@ class ErrorHandler {
 	}
 
 	public function exceptionErrorHandler (\Throwable $ex) {
+
 		$this->displayError('Exception', $ex->getMessage(), $ex->getFile(), $ex->getLine(), $ex->getCode());
 	}
 

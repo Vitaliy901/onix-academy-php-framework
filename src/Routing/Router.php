@@ -24,7 +24,7 @@ class Router {
 			}
 		}
 
-		throw new NotFound('Controller not found for this URL request: App/routes/', '404');
+		throw new NotFound('Controller not found for this URL request: App/routes/', 404);
 	}
 
 	private function createStencil ($path): string{

@@ -16,7 +16,7 @@ class Operator {
 		if (method_exists($controller, $path->action)) {
 			$result = $controller->{$path->action}(...$path->params);
 
-			if ($result instanceof ViewInterface) {
+			if ($result) {
 				echo $result->render();
 			} else {
 				throw new NotViewInterface

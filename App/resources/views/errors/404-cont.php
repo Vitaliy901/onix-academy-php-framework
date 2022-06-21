@@ -1,1 +1,1 @@
-<h1>Error dinosaur</h1>
+<h1>404 Error dinosaur</h1>

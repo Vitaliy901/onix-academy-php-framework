@@ -10,6 +10,7 @@ require_once ROOT . DS . 'vendor/autoload.php';
 $routes = require_once ROOT_APP . DS . 'routes/routes.php';
 
 new ErrorHandler;
+
 Session::start(SESSNAME);
 
 $path = (new Router)->compare($routes, $_SERVER['REQUEST_URI']);

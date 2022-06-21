@@ -17,9 +17,9 @@ class NewsController {
 		]);
 	}
 
-	public function one (int $id): Html {
+	public function one ($id) {
 		$row = (new News('articles'))->getById($id);
-
+		
 		if (is_object($row)) {
 			return new Html('article-page','home/article-page-content',
 			[
