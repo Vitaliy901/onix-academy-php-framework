@@ -1,0 +1,18 @@
+2022.06.22 14:15:08
+Type: Exception
+Message: Too few arguments to function App\Controllers\NewsController::show(), 0 passed in /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Operator.php on line 17 and exactly 1 expected
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/Controllers/NewsController.php
+Line: 9
+==========
+2022.06.22 14:18:12
+Type: Exception
+Message: App\Controllers\NewsController::show(): Return value must be of type Core\View\Html, none returned
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/Controllers/NewsController.php
+Line: 30
+==========
+2022.06.22 14:18:31
+Type: Exception
+Message: App\Controllers\NewsController::show(): Return value must be of type Core\View\Html, none returned
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/Controllers/NewsController.php
+Line: 30
+==========

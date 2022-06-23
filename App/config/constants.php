@@ -14,6 +14,6 @@ const SESSNAME = 'runo_sess';
 	1 - developmet;
 	0 - production;
 */
-const DEBUG = 1;
+const DEBUG = 0;
 const DEBUG_FILE = ROOT . DS .'App' . DS . 'temp' . DS . 'errors.log';
 ?>

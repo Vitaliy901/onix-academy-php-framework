@@ -28,16 +28,26 @@ class Router {
 	}
 
 	private function createStencil ($path): string{
-		return '#^' . preg_replace('#\{([^\s]+?)\}#', '/{0,2}(?<$1>[^/]+)/{0,}', $path) . '$#';
+		$result = preg_replace_callback('#\{([^\s/?]+)\??\}#', function ($match){
+			if (preg_match('#\{[^\s/?]+\}#',$match[0])) { // required
+				return "(?<$match[1]>[^\s/]+)";
+			}
+			if (preg_match('#\{[^\s/]+\?\}#',$match[0])) { // optional
+				return "{0,}(?<$match[1]>[^\s/]{0,})";
+			}
+		
+		},$path);
+		return '#^' . $result . '$#';
 	}
 	private function toClean($params): array{
 		$result = [];
+
 		foreach ($params as $key => $value) {
 			if (!is_int($key)) {
 				$result[$key] = $value;
 			}
 		}
-		return $result;
+		return array_filter($result);
 	}
 }
 ?>

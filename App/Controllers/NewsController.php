@@ -6,20 +6,19 @@ use App\Models\News;
 
 class NewsController {
 
-	public function all (): Html {
+	public function show ($id = 'news'): Html {
 		$news = (new News('articles'))->getAll();
 		$news = (new News('articles'))->latest($news);
 
-		return new Html('all-news','home/news-content', 
-		[
-			'title' => 'All News',
-			'news' => $news
-		]);
-	}
-
-	public function one ($id) {
+		if ($id == 'news') {
+			return new Html('all-news','home/news-content', 
+			[
+				'title' => 'All News',
+				'news' => $news
+			]);
+		}
 		$row = (new News('articles'))->getById($id);
-		
+
 		if (is_object($row)) {
 			return new Html('article-page','home/article-page-content',
 			[
@@ -27,6 +26,7 @@ class NewsController {
 				'id' => $row->created_at,
 			]);
 		}
+
 	}
 }
 

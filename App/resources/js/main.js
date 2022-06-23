@@ -10,4 +10,3 @@ $('.fade').slick({
 	pauseOnHover: false,
   });
 
-

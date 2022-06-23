@@ -32,7 +32,7 @@ class Data {
 		file_put_contents($path, $encoded);
 	}
 	
-	public static function get (string $path, ?string $id = null): array | object {
+	public static function get (string $path, string $id = null): array | object {
 		if (empty($id)) {
 			return self::all($path);
 		}

@@ -1,7 +1,7 @@
 $('.slider').slick({
 	infinite: true,
 	cssEase: 'ease-out',
-	speed: 2,
+	speed: 1000,
 	arrows: false,
 	pauseOnHover: true,
 	centerMode: true,
@@ -27,3 +27,24 @@ $('.slider').slick({
 			}
 		}]
 });
+
+/* $('.single-item').slick({
+	centerMode: true,
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	dots: false,
+	arrows: false,
+	infinite: true,
+	cssEase: 'linear',
+	variableWidth: true,
+	variableHeight: true,
+	mobileFirst: false,
+	responsive: [{
+	  breakpoint: 1300,
+	  settings: {
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		centerMode: false
+	  }
+	}]
+  }); */

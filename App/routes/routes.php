@@ -12,8 +12,7 @@ use App\Controllers\UserController;
 return [
 	new Route('/', HomeController::class, 'home'),
 
-	new Route('/news', NewsController::class, 'all'),
-	new Route('/news/{id}', NewsController::class, 'one'),
+	new Route('/news/{id?}', NewsController::class, 'show'),
 
 	new Route('/admin', ArticleController::class, 'show'),
 	new Route('/add', ArticleController::class, 'put'),
