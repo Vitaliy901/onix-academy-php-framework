@@ -3,7 +3,6 @@ namespace Core;
 
 use Core\Exceptions\ControllerAction;
 use Core\Exceptions\NotViewInterface;
-use Core\View\ViewInterface;
 
 /*
 	Создает необходимий контроллер из данных обьекта path.

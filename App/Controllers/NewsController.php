@@ -1,14 +1,13 @@
 <?php 
 namespace App\Controllers;
 
+use App\Models\Article;
 use Core\View\Html;
-use App\Models\News;
 
 class NewsController {
 
-	public function show ($id = 'news'): Html {
-		$news = (new News('articles'))->getAll();
-		$news = (new News('articles'))->latest($news);
+	public function show ($id = 'news') {
+		$news = (new Article)->findAll()->latest();
 
 		if ($id == 'news') {
 			return new Html('all-news','home/news-content', 
@@ -17,16 +16,13 @@ class NewsController {
 				'news' => $news
 			]);
 		}
-		$row = (new News('articles'))->getById($id);
 
-		if (is_object($row)) {
-			return new Html('article-page','home/article-page-content',
-			[
-				'title' => 'Article page',
-				'id' => $row->created_at,
-			]);
-		}
-
+		$row = (new Article)->findOne($id);
+		return new Html('article-page','home/article-page-content',
+		[
+			'title' => 'Article page',
+			'id' => $row->created_at,
+		]);
 	}
 }
 

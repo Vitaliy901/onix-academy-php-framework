@@ -8,11 +8,11 @@ use App\Models\Article;
 class ArticleController {
 
 	public function show (): Html {
-		$articles = (new Article('articles'))->getAll();
-		$articles = (new Article('articles'))->latest($articles);
+		$articles = (new Article)->findAll()->latest();
 
 		if (empty($_SESSION['auth'])) {
 			header('location: /login');
+			die();
 		}
 
 		return new Html('article-list','article/article-list-content', 
@@ -42,7 +42,7 @@ class ArticleController {
 	}
 
 	public function del ($id) {
-		(new Article('articles'))->delete($id);
+		(new Article('articles'))->delOne($id);
 
 		header('location: /admin');
 		die();

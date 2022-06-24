@@ -7,9 +7,9 @@ use App\Models\User;
 
 class UserController {
 
-	public function login (): Html {
+	public function login () {
 		$request = new Request;
-		$users = (new User('users'))->getAll();
+		$users = (new User)->findAll()->latest();
 
 		if (!empty($_COOKIE['runo_user'])) {
 			foreach ($users as $row) {
@@ -29,7 +29,7 @@ class UserController {
 			'verify' => '',
 		]);
 	}
-	public function register (): Html {
+	public function register () {
 
 		return new Html('form/register','form/register-content', 
 		[
@@ -43,7 +43,7 @@ class UserController {
 
 	public function loginResult () {
 		$request = new Request;
-		$users = (new User('users'))->getAll();
+		$users = (new User)->findAll()->latest();
 
 		foreach ($users as $row) {
 			if ($row->email == $request->input('email') && 
@@ -67,9 +67,9 @@ class UserController {
 		]);
 	}
 
-	public function registerResult (): Html {
+	public function registerResult () {
 		$request = new Request;
-		$users = (new User('users'))->getAll();
+		$users = (new User)->findAll()->latest();
 
 		foreach ($users as $row) {
 			if ($row->email == $request->input('email')) {
@@ -109,14 +109,14 @@ class UserController {
 	}
 
 	public function out () {
-		$users = (new User('users'))->getAll();
+		$users = (new User)->findAll()->latest();
 		$request = new Request;
 
 		if (!empty($_SESSION['auth'])) {
 			foreach ($users as $row) {
 				if ($row->id == $_SESSION['auth']) {
 					$row->tokenRemember = $request->token();
-					(new User('users'))->add($row);
+					(new User)->add($row);
 				}
 			}
 			$_SESSION['auth'] = false;

@@ -13,7 +13,7 @@ new ErrorHandler;
 
 Session::start(SESSNAME);
 
-$path = (new Router)->compare($routes, $_SERVER['REQUEST_URI']);
+$path = (new Router)->compare($routes, URI);
 (new Operator)->renderPage($path);
 
 ?>

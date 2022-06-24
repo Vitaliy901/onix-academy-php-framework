@@ -1,55 +1,41 @@
 <?php 
 namespace Core\Model;
 
-class Model {
-	private string $db_path;
-	protected string $table; // Имя таблицы из БД.
+use Core\Model\Traits\Sort;
 
-	public function __construct(string $name)
+abstract class Model {
+	use Sort;
+
+	private object $db; // instance of table from database;
+	protected string $table; // Name of table from database.
+
+	public function __construct() // Creates a singleton table object
 	{
-		$this->table = $name;
-
-		if (file_exists(DATA_BASE)) {
-			$this->db_path = DATA_BASE . DS;
-		} else {
-			echo 'There is no database for this directory - ' . DATA_BASE;
-		}
-
+		$this->table = ucfirst($this->table);
+		file_put_contents(ROOT . DS . 'src' . DS . 'Database' . DS . 'Tables' . DS . $this->table . '.php', 
+		"<?php\nnamespace Core\Database\Tables;\n\nuse Core\Database\Database;\n\nclass {$this->table} extends Database {}\n?>");
+		$table = 'Core\Database\Tables\\' . $this->table;
+		$this->db = $table::instance(lcfirst($this->table));
 	}
 
-	protected function putOne (array $row): void {
-		$connection = $this->connect();
-		Data::save($connection, $row);
+	public function insert (array $row): void {
+		$this->db->put($row);
 	}
 
-	protected function findOne (string $id): object|array{
-		$connection = $this->connect();
-		return Data::get($connection, $id);
-	}
-	protected function delOne (string $id): void{
-		$connection = $this->connect();
-		Data::delete($connection, $id);
-	}
-	protected function update (object $row): void{
-		$connection = $this->connect();
-		Data::update($connection, $row);
-	}
-	protected function findAll (): object|array {
-		$connection = $this->connect($this->table);
-		return Data::get($connection);
+	public function findAll (): array|object {
+		return $this;
 	}
 
-	private function connect(): string {
-		$path = $this->db_path . $this->table . FILE_FORMAT;
-		try {
-			if (!file_exists($path)) {
-				throw new \Exception('Table is not exists in this ' . DATA_BASE);
-			}
-		} catch (\Exception $e) {
-			echo $e->getMessage(); 
-			die();
-		}
-		return $path;
+	public function findOne (string|int $id): object{
+		return $this->db->get($id);
+	}
+
+	public function add (object $row): void{
+		$this->db->update($row);
+	}
+
+	public function delOne (string|int $id ): void{
+		$this->db->delete($id);
 	}
 }
 ?>
