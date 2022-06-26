@@ -15,6 +15,7 @@ class Router {
 	public function compare(array $routes, string $uri): Path{
 
 		foreach ($routes as $route) {
+
 			$stencil = $this->createStencil($route->path);
 
 			if (preg_match($stencil, $uri, $params)) {
@@ -28,15 +29,17 @@ class Router {
 	}
 
 	private function createStencil ($path): string{
+
 		$result = preg_replace_callback('#\{([^\s/?]+)\??\}#', function ($match){
 			if (preg_match('#\{[^\s/?]+\}#',$match[0])) { // required
 				return "(?<$match[1]>[^\s/]+)";
 			}
 			if (preg_match('#\{[^\s/]+\?\}#',$match[0])) { // optional
-				return "{0,}(?<$match[1]>[^\s/]{0,})";
+
+				return "{0,}\b/{0,}(?<$match[1]>[^\s/]{0,})";
 			}
-		
 		},$path);
+
 		return '#^' . $result . '$#';
 	}
 	private function toClean($params): array{
