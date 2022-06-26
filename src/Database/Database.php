@@ -56,9 +56,8 @@ class Database {
 	public function delete (string|int $id) {
 		foreach ($this->data as $index => $row) {
 			if ($row->id == $id) {
-				if (!empty($row->img) && file_exists(SERVER_ROOT . $row->img)) {
-					unlink(SERVER_ROOT . $row->img);
-				}
+				unlink(SERVER_ROOT . $row->img);
+				unlink(SERVER_ROOT . $row->imgSmall);
 				unset($this->data[$index]);
 				break;
 			}

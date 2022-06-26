@@ -1,6 +1,6 @@
 			<?php foreach ($news as $row): ?>
 				<article>
-					<img src="<?= $row->img ?>" srcset="<?= $row->img ?> 2x">
+					<img srcset="<?= $row->imgSmall ?> 2x">
 					<time><?= $row->created_at ?></time>
 					<h3>
 						<a href="/news/<?= $row->id ?>">
@@ -8,7 +8,7 @@
 						</a>
 					</h3>
 					<p>
-						<?= $row->content ?>
+						<?= $row->abridgement ?>
 					</p>
 				</article>
 			<?php endforeach ?>

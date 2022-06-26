@@ -14,7 +14,6 @@ class HomeController {
 			if (empty($news[$i])) {
 				break;
 			}
-			$news[$i]->content = preg_replace('#^(.+)\b$#', '$1...', substr($news[$i]->content, 0, 145));
 			$rows[] = $news[$i];
 		}
 		return new Html('index','home/news-content',

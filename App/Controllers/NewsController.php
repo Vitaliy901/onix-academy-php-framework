@@ -7,7 +7,8 @@ use Core\View\Html;
 class NewsController {
 
 	public function show ($id = 'news') {
-		$news = (new Article)->findAll()->latest();
+		$article = new Article;
+		$news = $article->findAll()->latest();
 
 		if ($id == 'news') {
 			return new Html('all-news','home/news-content', 
@@ -17,11 +18,19 @@ class NewsController {
 			]);
 		}
 
-		$row = (new Article)->findOne($id);
+		$row = $article->findOne($id);
+		$relatedPosts = $article->findAll()->random(3);
+		
 		return new Html('article-page','home/article-page-content',
 		[
 			'title' => 'Article page',
-			'id' => $row->created_at,
+			'header' => $row->header,
+			'articleContent' => $row->content,
+			'img' => $row->img,
+			'imgSmall' => $row->imgSmall,
+			'author' => $row->author,
+			'created_at' => $row->created_at,
+			'relatedPosts' => $relatedPosts
 		]);
 	}
 }

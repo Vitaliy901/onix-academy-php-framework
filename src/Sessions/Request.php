@@ -17,8 +17,9 @@ class Request {
 	public function moveFile (string $storage) {
 		if (!empty($_FILES['uploadedFile'] && $_FILES['uploadedFile']['error'] == UPLOAD_ERR_OK)) {
 			$tmp_path = $_FILES['uploadedFile']['tmp_name'];
-			$_REQUEST['fileName'] = DS . $storage . DS . $_FILES['uploadedFile']['name'];
-			move_uploaded_file($tmp_path, SERVER_ROOT . DS . $_REQUEST['fileName']);
+			$_REQUEST['filePath'] = DS . $storage . DS . $_FILES['uploadedFile']['name'];
+			$_REQUEST['fileName'] = $_FILES['uploadedFile']['name'];
+			move_uploaded_file($tmp_path, SERVER_ROOT . DS . $_REQUEST['filePath']);
 		}
 	}
 
