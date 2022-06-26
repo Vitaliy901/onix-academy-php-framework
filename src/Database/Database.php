@@ -39,6 +39,7 @@ class Database {
 				return $row;
 			}
 		}
+		throw new DatabaseException( 'Query: <b>' . $id . '</b> not found in a table.' , 404);
 	}
 
 	public function put (array $row) {

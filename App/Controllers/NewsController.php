@@ -19,7 +19,7 @@ class NewsController {
 		}
 
 		$row = $article->findOne($id);
-		$relatedPosts = $article->findAll()->random(3);
+		$relatedPosts = $article->findAll()->random($id);
 		
 		return new Html('article-page','home/article-page-content',
 		[

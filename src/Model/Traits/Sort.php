@@ -13,9 +13,18 @@ trait Sort {
 		return $result;
 	}
 
-	public function random (int $quantity): array {
-		$result = $this->db->get();
-		return array_intersect_key($result,array_flip(array_rand($result, $quantity)));
+	public function random (int $except = null,int $quantity = 3): array {
+		$data = $this->db->get();
+		$result = array_intersect_key($data,array_flip(array_rand($data,$quantity + 1)));
+
+		foreach ($result as $key => $row) {
+			if ($row->id == $except) {
+				unset($result[$key]);
+				return $result;
+			}
+		}
+		unset($result[0]);
+		return $result;
 	}
 }
 ?>
