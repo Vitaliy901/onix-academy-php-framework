@@ -9,15 +9,14 @@ class UserController {
 
 	public function login () {
 		$request = new Request;
-		$users = (new User)->findAll()->latest();
+		$users = (new User)->findAll();
 
 		if (!empty($_COOKIE['runo_user'])) {
 			foreach ($users as $row) {
 				if ($_COOKIE['runo_user'] == $row->tokenRemember) {
 					$_SESSION['auth'] = $row->id;
 
-					header('location: /admin');
-					die();
+					$request->redirect('/admin');
 				}
 			}
 		}
@@ -43,7 +42,7 @@ class UserController {
 
 	public function loginResult () {
 		$request = new Request;
-		$users = (new User)->findAll()->latest();
+		$users = (new User)->findAll();
 
 		foreach ($users as $row) {
 			if ($row->email == $request->input('email') && 
@@ -55,8 +54,7 @@ class UserController {
 				if ($request->input('remember') == 'on') {
 					setcookie('runo_user', $row->tokenRemember, strtotime('+1 year'), DS, '', false, 'httponly');
 				}
-				header('location: /admin');
-				die();
+				$request->redirect('/admin');
 			}
 		}
 		return new Html('form/login','form/login-content',
@@ -69,7 +67,7 @@ class UserController {
 
 	public function registerResult () {
 		$request = new Request;
-		$users = (new User)->findAll()->latest();
+		$users = (new User)->findAll();
 
 		foreach ($users as $row) {
 			if ($row->email == $request->input('email')) {
@@ -95,8 +93,7 @@ class UserController {
 			]);
 
 			$_SESSION['auth'] = true;
-			header('location: /admin');
-			die();
+			$request->redirect('/admin');
 		}
 		return new Html('form/register','form/register-content',
 		[
@@ -109,7 +106,7 @@ class UserController {
 	}
 
 	public function out () {
-		$users = (new User)->findAll()->latest();
+		$users = (new User)->findAll();
 		$request = new Request;
 
 		if (!empty($_SESSION['auth'])) {
@@ -123,8 +120,7 @@ class UserController {
 			unset($_COOKIE['runo_user']);
 			setcookie('runo_user', '', time() - 1);
 		}
-		header('location: /login');
-		die();
+		$request->redirect('/login');
 	}
 }
 ?>

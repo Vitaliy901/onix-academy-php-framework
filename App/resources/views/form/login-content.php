@@ -16,7 +16,7 @@
 							id="pass" 
 							type="password" 
 							name="password" 
-							minlength="8" required>
+							minlength="6" required>
 							<div class="form__rf-wrapper">
 								<label>
 									<input type="checkbox" name="remember">

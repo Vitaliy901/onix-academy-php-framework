@@ -60,6 +60,7 @@ class Database {
 				unlink(SERVER_ROOT . $row->img);
 				unlink(SERVER_ROOT . $row->imgSmall);
 				unset($this->data[$index]);
+				ksort($this->data);
 				break;
 			}
 		}

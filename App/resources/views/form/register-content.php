@@ -7,7 +7,7 @@
 							id="email" 
 							type="email" 
 							name="email"
-							pattern="\w+@[a-z]+\.[a-z]+" 
+							pattern="\w+@[a-z]+\.[a-z]+"
 							autofocus required
 							placeholder="<?= $email_verify ?>"
 							value="<?= $email ?>">
@@ -16,13 +16,13 @@
 							id="pass" 
 							type="password" 
 							name="password" 
-							minlength="8" required>
+							minlength="6" required>
 							<label class="label" for="pass">Confirm Password</label>
-							<input class="input" 
+							<input class="input"
 							id="confirm"
-							type="password" 
-							name="verify" 
-							minlength="8" required
+							type="password"
+							name="verify"
+							minlength="6" required
 							placeholder="<?= $verify ?>"
 							>
 							<input class="button" type="submit" value="Create account">

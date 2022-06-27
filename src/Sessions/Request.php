@@ -23,6 +23,16 @@ class Request {
 		}
 	}
 
+	public function redirect (string $http = '') {
+		if ($http) {
+			$redirect = $http;
+		} else {
+			$redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/';
+		}
+		header('location:' . $redirect );
+		die();
+	}
+	
 	public function token (): string {
 		$this->csrf = md5(uniqid(mt_rand(), true));
 		$_SESSION['csrf'] = $this->csrf;

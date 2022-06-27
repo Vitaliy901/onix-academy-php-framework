@@ -1,0 +1,144 @@
+2022.06.27 08:53:08
+Type: Exception
+Message: Controller not found for this URL request: App/routes/
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Routing/Router.php
+Line: 28
+==========
+2022.06.27 11:19:45
+Type: Exception
+Message: Call to a member function latest() on array
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/Controllers/NewsController.php
+Line: 11
+==========
+2022.06.27 11:29:35
+Type: Exception
+Message: Invalid parameter in the method <b>findAll</b>. Should be 'sort'.
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Model/Model.php
+Line: 33
+==========
+2022.06.27 12:03:57
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:05:49
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:05:51
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:05:51
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:06:14
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:07:32
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:08:05
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:08:48
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:08:53
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:23:46
+Type: Exception
+Message: Class "\ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:23:52
+Type: Exception
+Message: Class "ErrorHandler" does not exist
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 14
+==========
+2022.06.27 12:49:10
+Type: Exception
+Message: ReflectionClass::getMethods(): Argument #1 ($filter) must be of type ?int, string given
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/resources/index.php
+Line: 15
+==========
+2022.06.27 17:28:27
+Type: Exception
+Message: Cannot assign stdClass to property Core\Database\Database::$data of type array
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Database/Database.php
+Line: 16
+==========
+2022.06.27 17:36:42
+Type: E_WARNING
+Message: Attempt to read property "created_at" on array
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Model/Traits/Sort.php
+Line: 11
+==========
+2022.06.27 17:37:32
+Type: E_WARNING
+Message: Attempt to read property "created_at" on array
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Model/Traits/Sort.php
+Line: 11
+==========
+2022.06.27 17:38:20
+Type: E_WARNING
+Message: Attempt to read property "created_at" on array
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Model/Traits/Sort.php
+Line: 11
+==========
+2022.06.27 17:38:30
+Type: Exception
+Message: Cannot assign stdClass to property Core\Database\Database::$data of type array
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Database/Database.php
+Line: 16
+==========
+2022.06.27 17:43:37
+Type: Exception
+Message: array_rand(): Argument #2 ($num) must be between 1 and the number of elements in argument #1 ($array)
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Model/Traits/Sort.php
+Line: 18
+==========
+2022.06.27 17:44:04
+Type: Exception
+Message: array_rand(): Argument #2 ($num) must be between 1 and the number of elements in argument #1 ($array)
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Model/Traits/Sort.php
+Line: 18
+==========
+2022.06.27 17:52:38
+Type: Exception
+Message: array_rand(): Argument #2 ($num) must be between 1 and the number of elements in argument #1 ($array)
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Model/Traits/Sort.php
+Line: 23
+==========
+2022.06.27 17:58:37
+Type: Exception
+Message: Core\Model\Model::random(): Return value must be of type array, string returned
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Model/Traits/Sort.php
+Line: 22
+==========

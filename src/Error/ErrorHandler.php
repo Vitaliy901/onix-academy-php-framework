@@ -1,6 +1,9 @@
 <?php 
 namespace Core\Error;
-
+/**
+ * ErrorHandler
+ * @var 
+ */
 use Core\Error\ExceptionReport;
 use Core\View\Html;
 

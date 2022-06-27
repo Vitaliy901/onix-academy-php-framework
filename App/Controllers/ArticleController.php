@@ -9,7 +9,7 @@ use Core\ImageManager;
 class ArticleController {
 
 	public function show (): Html {
-		$articles = (new Article)->findAll()->latest();
+		$articles = (new Article)->findAll('sort')->latest();
 
 		if (empty($_SESSION['auth'])) {
 			header('location: /login');

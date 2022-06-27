@@ -2,6 +2,7 @@
 namespace Core\Model;
 
 use Core\Model\Traits\Sort;
+use Exception;
 
 abstract class Model {
 	use Sort;
@@ -22,8 +23,14 @@ abstract class Model {
 		$this->db->put($row);
 	}
 
-	public function findAll (): array|object {
-		return $this;
+	public function findAll (string $sort = null): array|object {
+		if (!$sort) {
+			return $this->db->get();
+		}
+		if ($sort == 'sort') {
+			return $this;
+		}
+		throw new Exception("Invalid parameter in the method <b>findAll</b>. Should be 'sort'.");
 	}
 
 	public function findOne (string|int $id): object{
