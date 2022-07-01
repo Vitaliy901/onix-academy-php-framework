@@ -2,7 +2,6 @@
 namespace Core\Model;
 
 use Core\Model\Traits\Sort;
-use Exception;
 
 abstract class Model {
 	use Sort;
@@ -24,13 +23,11 @@ abstract class Model {
 	}
 
 	public function findAll (string $sort = null): array|object {
-		if (!$sort) {
-			return $this->db->get();
-		}
-		if ($sort == 'sort') {
-			return $this;
-		}
-		throw new Exception("Invalid parameter in the method <b>findAll</b>. Should be 'sort'.");
+		return match ($sort) {
+			null => $this->db->get(),
+			'sort' => $this,
+			default => throw new \Exception("Invalid parameter in the method <b>findAll</b>. Should be 'sort'."),
+		};
 	}
 
 	public function findOne (string|int $id): object{
@@ -43,6 +40,21 @@ abstract class Model {
 
 	public function delOne (string|int $id ): void{
 		$this->db->delete($id);
+	}
+
+	public function search (string $querySearch): array {
+		$data = $this->db->get();
+		$found = [];
+
+		foreach ($data as $row) {
+			if (str_contains($row->header, $querySearch) ||
+				str_contains($row->content, $querySearch) ||
+				str_contains($row->author, $querySearch) ||
+				str_contains($row->created_at, $querySearch)) {
+				$found[] = $row;
+			}
+		}
+		return $found;
 	}
 }
 ?>

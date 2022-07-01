@@ -22,16 +22,6 @@ class Request {
 			move_uploaded_file($tmp_path, SERVER_ROOT . DS . $_REQUEST['filePath']);
 		}
 	}
-
-	public function redirect (string $http = '') {
-		if ($http) {
-			$redirect = $http;
-		} else {
-			$redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/';
-		}
-		header('location:' . $redirect );
-		die();
-	}
 	
 	public function token (): string {
 		$this->csrf = md5(uniqid(mt_rand(), true));

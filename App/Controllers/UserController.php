@@ -14,9 +14,9 @@ class UserController {
 		if (!empty($_COOKIE['runo_user'])) {
 			foreach ($users as $row) {
 				if ($_COOKIE['runo_user'] == $row->tokenRemember) {
-					$_SESSION['auth'] = $row->id;
-
-					$request->redirect('/admin');
+					$_SESSION['auth'] = true;
+					$_SESSION['id'] = $row->id;
+					redirect('/admin');
 				}
 			}
 		}
@@ -24,7 +24,7 @@ class UserController {
 		return new Html('form/login','form/login-content', 
 		[
 			'title' => 'Log in',
-			'token' => (new Request)->token(),
+			'token' => $request->token(),
 			'verify' => '',
 		]);
 	}
@@ -50,11 +50,11 @@ class UserController {
 			$_SESSION['csrf'] == $request->input('token'))
 			{
 				$_SESSION['auth'] = true;
-
+				$_SESSION['id'] = $row->id;
 				if ($request->input('remember') == 'on') {
 					setcookie('runo_user', $row->tokenRemember, strtotime('+1 year'), DS, '', false, 'httponly');
 				}
-				$request->redirect('/admin');
+				redirect('/admin');
 			}
 		}
 		return new Html('form/login','form/login-content',
@@ -77,7 +77,7 @@ class UserController {
 					'email_verify' => 'This email is already exists',
 					'email' => '',
 					'verify' => '',
-					'token' => (new Request)->token(),
+					'token' => $request->token(),
 				]);
 			}
 		}
@@ -91,17 +91,22 @@ class UserController {
 				'tokenRemember' => $request->token(),
 				'created_at' => date('d.m.Y H:i', time()),
 			]);
-
-			$_SESSION['auth'] = true;
-			$request->redirect('/admin');
+			foreach ((new User)->findAll() as $row) {
+				if ($row->email == $request->input('email')) {
+					$_SESSION['auth'] = true;
+					$_SESSION['id'] = $row->id;
+				}
+			}
+			redirect('/admin');
 		}
+		
 		return new Html('form/register','form/register-content',
 		[
 			'title' => 'Registration',
 			'email_verify' => '',
 			'email' => $request->input('email'),
 			'verify' => 'Different passwords',
-			'token' => (new Request)->token(),
+			'token' => $request->token(),
 		]);
 	}
 
@@ -120,7 +125,7 @@ class UserController {
 			unset($_COOKIE['runo_user']);
 			setcookie('runo_user', '', time() - 1);
 		}
-		$request->redirect('/login');
+		redirect('/login');
 	}
 }
 ?>

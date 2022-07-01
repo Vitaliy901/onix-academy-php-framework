@@ -73,8 +73,8 @@
 				</div>
 				<h2>Article List</h2>
 				<div class="search-add">
-					<form action="#" method="POST">
-						<input class="search" type="search" placeholder="Search Articles" autocomplete="on">
+					<form action="" method="POST">
+						<input class="search" type="search" name="search" placeholder="Search Articles" autocomplete="on">
 						<span class="icon-search-glass"></span>
 					</form>
 					<a class="button-add" href="#open-modal">+ Add New Article</a>
@@ -92,7 +92,7 @@
 								name="header"
 								minlength="5" autofocus required autocomplete="off">
 							<label for="content">Content</label>
-							<textarea id="content" name="content" cols="10"  minlength="140" required></textarea>
+							<textarea id="content" name="content" cols="10" minlength="140" required></textarea>
 							<label for="author">Author</label>
 							<input class="input" id="author" name="author" type="text" minlength="3" required>
 							<div class="buttons-wr">
@@ -130,5 +130,5 @@
 	</body>
 </html>
 <?php else: ?>
-	<h2>You are not authorized!</h2>
+	<h2>You are not authentication!</h2>
 <?php endif ?>

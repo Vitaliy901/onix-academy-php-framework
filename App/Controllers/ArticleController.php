@@ -9,13 +9,16 @@ use Core\ImageManager;
 class ArticleController {
 
 	public function show (): Html {
-		$articles = (new Article)->findAll('sort')->latest();
+		$article = new Article;
+		$articles = $article->findAll('sort')->latest();
+		$request = new Request;
 
 		if (empty($_SESSION['auth'])) {
-			header('location: /login');
-			die();
+			redirect('/login');
 		}
-
+		if ($request->input('search')) {
+			$articles = $article->search($request->input('search'));
+		}
 		return new Html('article-list','article/article-list-content', 
 		[
 			'title' => 'Article list',
@@ -40,9 +43,11 @@ class ArticleController {
 			$content .= (str_contains($chunk,'<blockquote>')) ? $chunk : '<p>' . $chunk . '</p>';
 		}
 		// resize image
-		$image = new ImageManager(SERVER_ROOT . $request->input('filePath'));
-		$image->resize(840, 700, SERVER_ROOT . DS . 'img'. DS . date('d.m.Y', time()) . '-840x700' . $request->input('fileName'), 80);
-
+		if (!empty($request->input('filePath'))) {
+			$image = new ImageManager(SERVER_ROOT . $request->input('filePath'));
+			$image->resize(840, 700, SERVER_ROOT . DS . 'img'. DS . date('d.m.Y', time()) . '-840x700' . $request->input('fileName'), 80);
+		}
+		
 		$article->insert([
 			'header' => strip_tags($request->input('header')),
 			'abridgement' => $abridgement,
@@ -53,17 +58,16 @@ class ArticleController {
 			'created_at' => date('d.m.Y', time()),
 			'updated_at' => date('d.m.Y', time()),
 			'status' => 'published',
+			'users_id' => $_SESSION['id'],
 		]);
 
-		header('location: /admin');
-		die();
+		redirect('/admin');
 	}
 
 	public function del ($id) {
 		(new Article)->delOne($id);
 
-		header('location: /admin');
-		die();
+		redirect('/admin');
 	}
 }
 

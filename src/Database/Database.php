@@ -55,19 +55,19 @@ class Database {
 	}
 
 	public function delete (string|int $id) {
+
 		foreach ($this->data as $index => $row) {
 			if ($row->id == $id) {
 				unlink(SERVER_ROOT . $row->img);
 				unlink(SERVER_ROOT . $row->imgSmall);
 				unset($this->data[$index]);
-				ksort($this->data);
 				break;
 			}
 		}
 	}
 
 	protected function save (): void {
-		ksort($this->data);
+		$this->data = array_values($this->data);
 		file_put_contents($this->path, json_encode($this->data));
 	}
 
