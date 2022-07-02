@@ -4,6 +4,7 @@ use App\Models\User;
 use Core\Error\ErrorHandler;
 use Core\Routing\Router;
 use Core\Operator;
+use Core\Routing\Url;
 use Core\Sessions\Session;
 
 require_once '../config/constants.php';
@@ -15,7 +16,7 @@ new ErrorHandler;
 
 Session::start(SESSNAME);
 
-$path = (new Router)->compare($routes, URI);
+$path = (new Router)->compare($routes, Url::current());
 (new Operator)->renderPage($path);
 
 ?>

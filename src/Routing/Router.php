@@ -40,8 +40,13 @@ class Router {
 			}
 		},$path);
 
+		$getParams = preg_replace('#(\++?)#','\\\$1',Url::urlParams());
+		if (!empty($_GET['search'])) {
+			return '#^' . $result . '\\' . $getParams . '$#';
+		}
 		return '#^' . $result . '$#';
 	}
+
 	private function toClean($params): array{
 		$result = [];
 

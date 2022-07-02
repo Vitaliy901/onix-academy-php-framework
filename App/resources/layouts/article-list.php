@@ -73,8 +73,14 @@
 				</div>
 				<h2>Article List</h2>
 				<div class="search-add">
-					<form action="" method="POST">
-						<input class="search" type="search" name="search" placeholder="Search Articles" autocomplete="on">
+					<form action="" method="GET">
+						<input class="search" 
+						type="search" 
+						name="search" 
+						placeholder="Search Articles" 
+						autocomplete="on"
+						value="<?= $search ?>"
+						required>
 						<span class="icon-search-glass"></span>
 					</form>
 					<a class="button-add" href="#open-modal">+ Add New Article</a>

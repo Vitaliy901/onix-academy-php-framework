@@ -43,14 +43,15 @@ abstract class Model {
 	}
 
 	public function search (string $querySearch): array {
+		$query = strtolower($querySearch);
 		$data = $this->db->get();
 		$found = [];
 
 		foreach ($data as $row) {
-			if (str_contains($row->header, $querySearch) ||
-				str_contains($row->content, $querySearch) ||
-				str_contains($row->author, $querySearch) ||
-				str_contains($row->created_at, $querySearch)) {
+			if (str_contains(strtolower($row->header), trim($query)) ||
+				str_contains(strtolower($row->header), trim($query)) ||
+				str_contains(strtolower($row->author), trim($query)) ||
+				str_contains(strtolower($row->created_at), trim($query))) {
 				$found[] = $row;
 			}
 		}

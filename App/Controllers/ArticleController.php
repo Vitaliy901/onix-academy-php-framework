@@ -19,10 +19,12 @@ class ArticleController {
 		if ($request->input('search')) {
 			$articles = $article->search($request->input('search'));
 		}
-		return new Html('article-list','article/article-list-content', 
+
+		return new Html('article-list','article/article-list-content',
 		[
 			'title' => 'Article list',
 			'articles' => $articles,
+			'search' => $request->input('search'),
 		]);
 	}
 

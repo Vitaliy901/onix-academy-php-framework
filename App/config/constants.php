@@ -2,7 +2,7 @@
 define('SERVER_ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('ROOT', dirname(__DIR__, 2));
 define('ROOT_APP', dirname(__DIR__, 1));
-define('URI', $_SERVER['REQUEST_URI']);
+
 const DS = DIRECTORY_SEPARATOR;
 
 const DATA_BASE = ROOT . DS . 'database';
