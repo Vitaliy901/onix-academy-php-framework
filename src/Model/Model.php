@@ -9,7 +9,7 @@ abstract class Model {
 	private object $db; // Instance of table from database;
 	protected string $table; // Name of table from database.
 
-	public function __construct() // Creates a singleton table class and object
+	public function __construct() // Creates a singleton table class
 	{
 		$this->table = ucfirst($this->table);
 		file_put_contents(ROOT . DS . 'src' . DS . 'Database' . DS . 'Tables' . DS . $this->table . '.php', 

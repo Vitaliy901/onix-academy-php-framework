@@ -5,7 +5,7 @@ define('ROOT_APP', dirname(__DIR__, 1));
 
 const DS = DIRECTORY_SEPARATOR;
 
-const DATA_BASE = ROOT . DS . 'database';
+const DATABASE = ROOT . DS . 'database';
 const FILE_FORMAT = '.json';
 
 const LAYOUTS_PATH = SERVER_ROOT . DS . 'layouts';

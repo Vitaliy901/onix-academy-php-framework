@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Core\Error\ErrorHandler;
 use Core\Routing\Router;
 use Core\Operator;

@@ -59,7 +59,7 @@
 				</div>
 				<nav class="header-links">
 					<ul>
-						<li><a href="/news">Articles</a></li>
+						<li><a href="/admin">Articles</a></li>
 						<li><a href="/logout">Logout</a></li>
 					</ul>
 				</nav>

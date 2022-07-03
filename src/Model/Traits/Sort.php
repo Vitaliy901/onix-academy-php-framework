@@ -6,7 +6,7 @@ trait Sort {
 	public function latest(): array {
 		$result = $this->db->get();
 		usort($result, function ($a, $b) {
-			return $a->created_at <=> $b->created_at;
+			return $b->created_at <=> $a->created_at ;
 		});
 		return $result;
 	}

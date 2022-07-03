@@ -16,7 +16,7 @@ class ArticleController {
 		if (empty($_SESSION['auth'])) {
 			redirect('/login');
 		}
-		if ($request->input('search')) {
+		if (!empty($request->input('search'))) {
 			$articles = $article->search($request->input('search'));
 		}
 

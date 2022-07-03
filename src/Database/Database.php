@@ -10,15 +10,15 @@ class Database {
 
 	protected function __construct(string $table)
 	{
-		if (file_exists(DATA_BASE . DS. $table . FILE_FORMAT)) {
-			$this->path = DATA_BASE . DS. $table . FILE_FORMAT;
+		if (file_exists(DATABASE . DS. $table . FILE_FORMAT)) {
+			$this->path = DATABASE . DS. $table . FILE_FORMAT;
 			if (file_get_contents($this->path)) {
 				$this->data = json_decode(file_get_contents($this->path));
 			} else {
 				throw new DatabaseException('Table ' . '<b>' . $table . '</b>' . ' is empty!');
 			}
 		} else {
-			throw new DatabaseException( 'Invalid directory for this: ' . DATA_BASE);
+			throw new DatabaseException( 'Invalid directory for this: ' . DATABASE);
 		}
 		register_shutdown_function([$this,'save']);
 	}
