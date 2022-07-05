@@ -6,7 +6,7 @@ class Request {
 
 	public function input (string $name) {
 		if (!empty($_REQUEST[$name])) {
-			return $_REQUEST[$name];
+			return strip_tags(trim($_REQUEST[$name]));
 		}
 	}
 
@@ -27,6 +27,10 @@ class Request {
 		$this->csrf = md5(uniqid(mt_rand(), true));
 		$_SESSION['csrf'] = $this->csrf;
 		return $this->csrf;
+	}
+
+	public function session () {
+		return Session::instance(SESSNAME);
 	}
 }
 ?>

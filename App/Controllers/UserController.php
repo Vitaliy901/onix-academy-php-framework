@@ -14,8 +14,8 @@ class UserController {
 		if (!empty($_COOKIE['runo_user'])) {
 			foreach ($users as $row) {
 				if ($_COOKIE['runo_user'] == $row->tokenRemember) {
-					$_SESSION['auth'] = true;
-					$_SESSION['id'] = $row->id;
+					$request->session()->put('auth', true);
+					$request->session()->put('id', $row->id);
 					redirect('/admin');
 				}
 			}
@@ -26,6 +26,7 @@ class UserController {
 			'title' => 'Log in',
 			'token' => $request->token(),
 			'verify' => '',
+			'session' => $request->session()->get('auth'),
 		]);
 	}
 	public function register () {
@@ -47,16 +48,17 @@ class UserController {
 		foreach ($users as $row) {
 			if ($row->email == $request->input('email') && 
 			password_verify($request->input('password'), $row->pass ) &&
-			$_SESSION['csrf'] == $request->input('token'))
+			$request->session()->get('csrf') == $request->input('token'))
 			{
-				$_SESSION['auth'] = true;
-				$_SESSION['id'] = $row->id;
+				$request->session()->put('auth', true);
+				$request->session()->put('id', $row->id);
 				if ($request->input('remember') == 'on') {
 					setcookie('runo_user', $row->tokenRemember, strtotime('+1 year'), DS, '', false, 'httponly');
 				}
 				redirect('/admin');
 			}
 		}
+
 		return new Html('form/login','form/login-content',
 		[
 			'title' => 'Log in',
@@ -82,7 +84,7 @@ class UserController {
 			}
 		}
 
-		if ($_SESSION['csrf'] == $request->input('token') &&
+		if ($request->session()->get('csrf') == $request->input('token') &&
 		$request->input('password') == $request->input('verify')) {
 
 			(new User('users'))->insert([
@@ -93,8 +95,8 @@ class UserController {
 			]);
 			foreach ((new User)->findAll() as $row) {
 				if ($row->email == $request->input('email')) {
-					$_SESSION['auth'] = true;
-					$_SESSION['id'] = $row->id;
+					$request->session()->put('auth', true);
+					$request->session()->put('id', $row->id);
 				}
 			}
 			redirect('/admin');
@@ -114,14 +116,14 @@ class UserController {
 		$users = (new User)->findAll();
 		$request = new Request;
 
-		if (!empty($_SESSION['auth'])) {
+		if (!empty($request->session()->get('auth'))) {
 			foreach ($users as $row) {
-				if ($row->id == $_SESSION['auth']) {
+				if ($row->id == $request->session()->get('id')) {
 					$row->tokenRemember = $request->token();
 					(new User)->add($row);
 				}
 			}
-			$_SESSION['auth'] = false;
+			$request->session()->put('auth', false);
 			unset($_COOKIE['runo_user']);
 			setcookie('runo_user', '', time() - 1);
 		}

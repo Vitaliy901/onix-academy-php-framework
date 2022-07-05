@@ -4,7 +4,7 @@ use Core\Error\ErrorHandler;
 use Core\Routing\Router;
 use Core\Operator;
 use Core\Routing\Url;
-use Core\Sessions\Session;
+use Core\Sessions\Request;
 
 require_once '../config/constants.php';
 require_once ROOT . DS . 'vendor/autoload.php';
@@ -13,7 +13,7 @@ $routes = require_once ROOT_APP . DS . 'routes/routes.php';
 
 new ErrorHandler;
 
-Session::start(SESSNAME);
+(new Request)->session();
 
 $path = (new Router)->compare($routes, Url::current());
 (new Operator)->renderPage($path);

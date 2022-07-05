@@ -13,7 +13,7 @@ class ArticleController {
 		$articles = $article->findAll('sort')->latest();
 		$request = new Request;
 
-		if (empty($_SESSION['auth'])) {
+		if (empty($request->session()->get('auth'))) {
 			redirect('/login');
 		}
 		if (!empty($request->input('search'))) {
@@ -25,6 +25,7 @@ class ArticleController {
 			'title' => 'Article list',
 			'articles' => $articles,
 			'search' => $request->input('search'),
+			'session' => $request->session()->get('auth'),
 		]);
 	}
 
@@ -60,7 +61,7 @@ class ArticleController {
 			'created_at' => date('d.m.Y', time()),
 			'updated_at' => date('d.m.Y', time()),
 			'status' => 'published',
-			'users_id' => $_SESSION['id'],
+			'users_id' => $request->session()->get('id'),
 		]);
 
 		redirect('/admin');

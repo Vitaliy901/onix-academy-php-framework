@@ -1,4 +1,6 @@
-<?php if ($_SESSION['auth']): ?>
+<?php
+ if ($session ?? false): ?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,7 +15,7 @@
 		<link rel="preload" as="style" href="/css/style.css">
 		<link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Lora&family=Roboto&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
-		<title><?= $title ?></title>
+		<title><?= $title ?? 'Runo' ?></title>
 		<link rel="shortcut icon" href="/img/favicon/favicon.ico">
 	</head>
 	<body>
