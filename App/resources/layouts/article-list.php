@@ -105,7 +105,7 @@
 							<input class="input" id="author" name="author" type="text" minlength="3" required>
 							<div class="buttons-wr">
 								<label class="button-file" for="file">add image</label>
-								<input class="file" id="file" name="uploadedFile" type="file" accept="image/*">
+								<input class="file" id="file" name="uploadedFile" type="file" required accept="image/*">
 								<input class="button" type="submit" value="Publish">
 							</div>
 						</fieldset>
