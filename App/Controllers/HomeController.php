@@ -7,10 +7,10 @@ use Core\View\Html;
 class HomeController {
 
 	public function home () {
-		$news = (new Article)->findAll('sort')->latest();
+		$news = (new Article)->findAll('latest');
 
 		$rows = [];
-		for ($i=0; $i < 8; $i++) { 
+		for ($i=0; $i < 8; $i++) {
 			if (empty($news[$i])) {
 				break;
 			}

@@ -10,7 +10,7 @@ class ArticleController {
 
 	public function show (): Html {
 		$article = new Article;
-		$articles = $article->findAll('sort')->latest();
+		$articles = $article->findAll('latest');
 		$request = new Request;
 
 		if (empty($request->session()->get('auth'))) {

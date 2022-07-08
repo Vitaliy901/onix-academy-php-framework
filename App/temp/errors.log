@@ -1,0 +1,18 @@
+2022.07.08 09:07:51
+Type: Exception
+Message: Call to a member function latest() on array
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/App/Controllers/HomeController.php
+Line: 10
+==========
+2022.07.08 09:07:52
+Type: Exception
+Message: Controller not found for this URL request: App/routes/
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Routing/Router.php
+Line: 28
+==========
+2022.07.08 09:42:06
+Type: Exception
+Message: Invalid parameter in the method <b>findAll</b>. Should be 'sort' or 'random'.
+File: /mnt/HDD/projects/onix-academy/onix-academy-php-framework/src/Model/Model.php
+Line: 31
+==========

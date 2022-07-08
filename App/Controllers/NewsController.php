@@ -8,7 +8,7 @@ class NewsController {
 
 	public function show ($id = 'news') {
 		$article = new Article;
-		$news = $article->findAll('sort')->latest();
+		$news = $article->findAll('latest');
 
 		if ($id == 'news') {
 			return new Html('all-news','home/news-content', 
@@ -19,7 +19,7 @@ class NewsController {
 		}
 
 		$row = $article->findOne($id);
-		$relatedPosts = $article->findAll('sort')->random($id);
+		$relatedPosts = $article->findAll('random', $id);
 		
 		return new Html('article-page','home/article-page-content',
 		[

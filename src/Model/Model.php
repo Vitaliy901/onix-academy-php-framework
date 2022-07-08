@@ -22,11 +22,13 @@ abstract class Model {
 		$this->db->put($row);
 	}
 
-	public function findAll (string $sort = null): array|object {
-		return match ($sort) {
+	public function findAll (string $sort = null, int $except = null, int $quantity = 3): array {
+		return match ($sort)
+		{
 			null => $this->db->get(),
-			'sort' => $this,
-			default => throw new \Exception("Invalid parameter in the method <b>findAll</b>. Should be 'sort'."),
+			'latest' => $this->latest(),
+			'random' => $this->random($except, $quantity),
+			default => throw new \Exception("Invalid parameter in the method <b>findAll</b>. Should be 'sort' or 'random'."),
 		};
 	}
 

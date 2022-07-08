@@ -11,7 +11,7 @@ trait Sort {
 		return $result;
 	}
 
-	public function random (int $except = null,int $quantity = 3): array {
+	public function random (int $except = null,int $quantity): array {
 		$data = $this->db->get();
 		if (count($data) > 0 && count($data) < 4) {
 			foreach ($data as $key => $row) {
